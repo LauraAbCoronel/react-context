@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function UserSignIn(props) {
   const username = useRef(null);
@@ -40,14 +40,11 @@ export default function UserSignIn(props) {
               ref={password}
               placeholder="Password" />
             <div className="pad-bottom">
-              <button className="button" type="submit">Sign In</button>
-              <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
+              <button className="button" type="submit" style={{background:props.color}}>Sign In</button>
+              <button className="button button-secondary" style={{color:props.color}} onClick={handleCancel}>Cancel</button>
             </div>
           </form>
         </div>
-        <p>
-          Don't have a user account? <Link to="/signup">Click here</Link> to sign up!
-        </p>
       </div>
     </div>
   );
