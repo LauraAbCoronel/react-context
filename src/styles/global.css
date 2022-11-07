@@ -737,9 +737,12 @@ input:focus {
   width: 50px;
   height: 30px;
   border-radius: 25px;
+  border: none;
   outline: none;
   cursor: pointer;
-  color: #ccc;
+  background-color: var(--toggle-bg);
+  transition: background .5s ease;
+  
 }
 
 .darkMode-selector::after {
@@ -751,13 +754,13 @@ input:focus {
   border-radius: 50%;
   height: 1.25rem;
   width: 1.25rem;
-  background-color: #ccc;
-  transition: left .3s;
+  background-color: var(--toggle-color);
+  transition: left .3s, background .5s;
 }
 
 .darkMode-selector:checked::after {
   left: 70%;
-  background-color: #000000;
+  background-color: var(--toggle-color);
 }
 
 input[type="range"] {

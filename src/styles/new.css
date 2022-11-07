@@ -1,4 +1,21 @@
+body {
+  --primary-bg: rgb(255, 255, 255);
+  --primary-copy: rgb(50, 52, 65);
+  --toggle-bg: #ccc;
+  --toggle-color: #ffffff;
+}
+body.dark {
+  --primary-bg: rgb(50, 52, 65);
+  --primary-copy: rgb(255, 255, 255);
+  --toggle-bg: #ccc;
+  --toggle-color: rgb(50, 52, 65);
+}
 
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-copy);
+  transition: background .5s ease, color .5s ease;
+}
 /* adds additional padding to the bottom of an element */
 .pad-bottom {
   padding-bottom: 40px;
