@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import{ useState, createContext } from "react";
 
-const userContext = React.createContext({
-  user: null,
-  actions: {
-    signInUser: (user) => { },
-    signOutUser: () => { }
-  }
-});
+const userContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+
+  const signInUser = (newUser) => {
+    setUser(newUser)
+  }
+
+  const signOutUser = () => {
+    setUser(null);
+  }
+
   const value = {
     user,
     actions: {
-      signInUser: (newUser) => setUser(newUser),
-      signOutUser: () => setUser(null)
+      signInUser,
+      signOutUser
     }
   };
 

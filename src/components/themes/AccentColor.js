@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { TwitterPicker } from 'react-color';
 import themeContext from "../../context/themeContext";
 

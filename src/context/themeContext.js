@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 
-const themeContext = React.createContext({
-  isDarkMode: false,
-  accentColor: '#63537d',
-  fontPercentage: 100
-});
+const themeContext = createContext();
 
 export const ThemeProvider = ({children}) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -20,12 +16,16 @@ export const ThemeProvider = ({children}) => {
     document.body.style.fontSize = `${fontPercentage}%`
   }, [isDarkMode,fontPercentage]);
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(currentMode => !currentMode);
+  }
+
   const value = {
     isDarkMode,
     accentColor,
     fontPercentage,
     actions: {
-      toggleDarkMode: () => setIsDarkMode(currentMode => !currentMode),
+      toggleDarkMode,
       updateAccentColor: setAccentColor,
       updateFontPercentage: setFontPercentage
     }

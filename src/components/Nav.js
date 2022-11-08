@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import userContext from "../context/userContext";
 
-export default function Nav() {
+const Nav = () => {
   const { user } = useContext(userContext);
   return (
     <nav>
@@ -19,3 +19,5 @@ export default function Nav() {
     </nav>
   );
 }
+
+export default Nav;

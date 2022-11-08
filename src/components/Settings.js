@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userContext from "../context/userContext";
 
+//Components
 import DarkMode from "./themes/DarkMode";
 import AccentColor from "./themes/AccentColor";
 import FontSize from "./themes/FontSize";
@@ -15,7 +16,7 @@ function Settings() {
   // If the user isn't logged in navigate them to signin route
   useEffect(() => {
     if (user === null) {
-      navigate('/signin');
+      navigate('/signin', {replace:true});
     }
   })
 
