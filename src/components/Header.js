@@ -1,11 +1,15 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import themeContext from '../context/themeContext';
 
 import Nav from './Nav';
 
-export default function Header(props) {
+const Header = () => {
+  const { accentColor } = useContext(themeContext);
+
   return (
-    <div className="header" style={{background:props.color}}>
+    <div className="header" style={{background:accentColor}}>
       <div className="bounds">
         <Link to="/">
           <h1 className="header--logo">MyApp</h1>
@@ -15,3 +19,5 @@ export default function Header(props) {
     </div>
   );
 };
+
+export default Header;

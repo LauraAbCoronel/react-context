@@ -1,4 +1,9 @@
-export default function Courses({ user }) {
+import React, { useContext } from "react";
+import userContext from "../context/userContext";
+
+const Home = () => {
+  const { user } = useContext(userContext);
+
   return (
     <div className="bounds">
       <div className="grid-100">
@@ -18,3 +23,5 @@ export default function Courses({ user }) {
     </div>
   );
 };
+
+export default Home;

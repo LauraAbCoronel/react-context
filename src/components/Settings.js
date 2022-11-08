@@ -1,14 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import userContext from "../context/userContext";
 
 import DarkMode from "./themes/DarkMode";
 import AccentColor from "./themes/AccentColor";
 import FontSize from "./themes/FontSize";
 
-export default function Settings(props) {
+function Settings() {
+  // Context
+  const { user } = useContext(userContext);
+
   const navigate = useNavigate();
+
+  // If the user isn't logged in navigate them to signin route
   useEffect(() => {
-    if (props.user === null) {
+    if (user === null) {
       navigate('/signin');
     }
   })
@@ -17,18 +23,12 @@ export default function Settings(props) {
     <div className="bounds">
       <div className="grid-100">
         <h1>Preferences</h1>
-        <DarkMode 
-          fontDelta={props.fontDelta}
-          toggleDarkMode={props.toggleDarkMode} 
-          color={props.accentColor} />
-        <AccentColor 
-          fontDelta={props.fontDelta}
-          accentColor={props.accentColor}
-          setAccentColor={props.setAccentColor} />
-        <FontSize
-          fontDelta={props.fontDelta}
-          setFontDelta={props.setFontDelta} />
+        <DarkMode />
+        <AccentColor />
+        <FontSize />
       </div>
     </div>
   );
 }
+
+export default Settings;

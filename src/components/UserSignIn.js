@@ -1,18 +1,26 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import themeContext from '../context/themeContext';
+import userContext from '../context/userContext';
 
-export default function UserSignIn(props) {
+ const UserSignIn = () => {
+  // Context
+  const { actions } = useContext(userContext);
+  const { accentColor } = useContext(themeContext);
+
+  // State
   const username = useRef(null);
   const password = useRef(null);
   const navigate = useNavigate();
 
+  // Event Handlers
   const handleSubmit = (event) => {
     event.preventDefault();
     const user = {
       username: username.current.value,
       password: password.current.value
     }
-    props.changeUser(user);
+    actions.signInUser(user);
     navigate("/");
   }
 
@@ -40,8 +48,8 @@ export default function UserSignIn(props) {
               ref={password}
               placeholder="Password" />
             <div className="pad-bottom">
-              <button className="button" type="submit" style={{background:props.color}}>Sign In</button>
-              <button className="button button-secondary" style={{color:props.color}} onClick={handleCancel}>Cancel</button>
+              <button className="button" type="submit" style={{background:accentColor}}>Sign In</button>
+              <button className="button button-secondary" style={{color:accentColor}} onClick={handleCancel}>Cancel</button>
             </div>
           </form>
         </div>
@@ -49,3 +57,5 @@ export default function UserSignIn(props) {
     </div>
   );
 }
+
+export default UserSignIn;

@@ -4,6 +4,7 @@ body {
   --toggle-bg: #ccc;
   --toggle-color: #ffffff;
 }
+
 body.dark {
   --primary-bg: rgb(50, 52, 65);
   --primary-copy: rgb(255, 255, 255);
@@ -16,6 +17,23 @@ body {
   color: var(--primary-copy);
   transition: background .5s ease, color .5s ease;
 }
+
+.twitter-picker>div {
+  background-color: var(--primary-bg);
+  transition: background .5s ease, color .5s ease;
+}
+
+[id^='rc-editable-input'] {
+  background: var(--primary-bg);
+  color: var(--primary-copy);
+  transition: background .5s ease, color .5s ease;
+}
+
+input[type="range"] {
+  color: var(--primary-copy);
+  transition: background .5s ease, color .5s ease;
+}
+
 /* adds additional padding to the bottom of an element */
 .pad-bottom {
   padding-bottom: 40px;
@@ -37,6 +55,7 @@ body {
   color: #7c689b;
   font-size: 28px;
 }
+
 .validation-errors ul {
   color: #7c689b;
   padding: 15px 0 40px 10px;
