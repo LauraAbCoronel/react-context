@@ -23,9 +23,9 @@ function App() {
       document.body.classList.remove('dark');
     }
     document.body.style.fontSize = `${fontPercentage}%`
-  }, [isDarkMode,fontPercentage]);
+  }, [isDarkMode, fontPercentage]);
 
-  const signInUser = (username,password) => {
+  const signInUser = (username, password) => {
     const newUser = {
       username,
       password
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div>
-      <Header 
+      <Header
         user={user}
         accentColor={accentColor} />
       <Routes>
@@ -55,7 +55,7 @@ function App() {
         } />
         <Route path="signout" element={<UserSignOut signOut={signOutUser} />} />
         <Route path="settings" element={
-          <Settings 
+          <Settings
             user={user}
             isDarkMode={isDarkMode}
             toggleDarkMode={toggleDarkMode}

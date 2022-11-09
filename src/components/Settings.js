@@ -12,7 +12,7 @@ function Settings(props) {
   // If the user isn't logged in navigate them to signin route
   useEffect(() => {
     if (props.user === null) {
-      navigate('/signin', {replace:true});
+      navigate('/signin', { replace: true });
     }
   })
 

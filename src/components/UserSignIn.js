@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
- const UserSignIn = (props) => {
+const UserSignIn = (props) => {
   // State
   const username = useRef(null);
   const password = useRef(null);
-  
+
   const navigate = useNavigate();
 
   // Event Handlers
@@ -39,8 +39,8 @@ import { useNavigate } from 'react-router-dom';
               ref={password}
               placeholder="Password" />
             <div className="pad-bottom">
-              <button className="button" type="submit" style={{background:props.accentColor}}>Sign In</button>
-              <button className="button button-secondary" style={{color:props.accentColor}} onClick={handleCancel}>Cancel</button>
+              <button className="button" type="submit" style={{ background: props.accentColor }}>Sign In</button>
+              <button className="button button-secondary" style={{ color: props.accentColor }} onClick={handleCancel}>Cancel</button>
             </div>
           </form>
         </div>
