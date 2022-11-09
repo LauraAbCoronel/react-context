@@ -1,10 +1,4 @@
-import { useContext } from "react";
-import themeContext from "../../context/themeContext";
-
-const FontSize = () => {
-  // Context
-  const { fontPercentage, accentColor, actions } = useContext(themeContext);
-
+const FontSize = (props) => {
   return (
     <div>
       <h3>Adjust Font Size</h3>
@@ -15,9 +9,9 @@ const FontSize = () => {
         min="50"
         max="250"
         step='25'
-        value={fontPercentage}
-        onChange={(e) => actions.updateFontPercentage(+e.target.value)} // should i change "+" to parseInt()?
-        style={{ accentColor: accentColor }} />
+        value={props.fontPercentage}
+        onChange={(e) => props.updateFontPercentage(+e.target.value)} // should i change "+" to parseInt()?
+        style={{ accentColor: props.accentColor }} />
 
       <datalist id="tickmarks">
         <option value="50" label="50%"></option>

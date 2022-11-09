@@ -1,18 +1,12 @@
-import { useContext } from "react";
-import themeContext from "../../context/themeContext";
-
-const DarkMode = () => {
-  // Context
-  const { isDarkMode, actions } = useContext(themeContext);
-
+const DarkMode = (props) => {
   return (
     <div>
       <h3>Dark Mode</h3>
       <input 
         type='checkbox' 
         className="darkMode-selector" 
-        checked={isDarkMode}
-        onChange={() => actions.toggleDarkMode()}/>
+        checked={props.isDarkMode}
+        onChange={() => props.toggleDarkMode()}/>
     </div>
   );
 }
